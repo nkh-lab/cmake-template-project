@@ -9,7 +9,18 @@
 @rem but WITHOUT ANY WARRANTY.
 @rem 
 
+@rem Usage:
+@rem Script input arguments: 
+@rem   '/z' - no need to archive a package
+@rem
+
 @echo off
+
+SET ZIP=1
+
+FOR %%A IN (%*) DO (
+    IF "%%A"=="/z" SET ZIP=0
+)
 
 SET DIR=%~dp0
 cd %DIR\..
@@ -20,7 +31,7 @@ SET PORTABLE_ARCHIVE_NAME="usbrelaymodule-portable"
 rd /s /q build\ 2>nul
 mkdir build && cd build
 
-cmake -G "Visual Studio 17 2022" -A Win32 .. 
+cmake -G "Visual Studio 17 2022" .. 
 cmake --build . --config Release
 
 cd %PROJECT_ROOT%
@@ -34,4 +45,7 @@ copy build\external\hidapi\src\windows\Release\hidapi.dll %PORTABLE_DIR_REL_PATH
 
 cd %PORTABLE_DIR_REL_PATH%
 
-tar -czf ../%PORTABLE_ARCHIVE_NAME%.tar.gz *
+IF %ZIP%==1 
+(
+    tar -czf ../%PORTABLE_ARCHIVE_NAME%.tar.gz *
+)

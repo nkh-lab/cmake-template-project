@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [ '**' ]
+
+jobs:
+  Build-on-Ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Checkout submodules
+        run: git submodule update --init --recursive
+      - name: Install dependencies
+        run: |
+          sudo apt-get install libgtest-dev libgmock-dev
+      - name: Build with Tests
+        run: |
+          mkdir build && cd build
+          cmake -Dprojectmy_BUILD_UTESTS=ON -Dprojectmy_BUILD_CTESTS=ON ..
+          make
+      - name: Run Unit Tests
+        run: |
+          build/libmy/tests/unit/libmy-unit-tests
+          build/appmy/tests/unit/appmy-unit-tests
+      - name: Run Component Tests
+        run: |
+          build/libmy/tests/component/LibMyCounterTest 5
+          build/libmy/tests/component/LibMyRandomizerTest 5
+      - name: Run App
+        run: |
+          build/appmy/appmy 10
+      - name: Build Portable
+        run: |
+          tools/build-portable-linux.sh -z
+      - name: Run Portable App
+        run: |
+          build/portable/appmy 10

@@ -16,8 +16,18 @@ project(projectmy VERSION 1.0.0)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-option(${PROJECT_NAME}_BUILD_UTESTS "Build unit tests"      OFF)
-option(${PROJECT_NAME}_BUILD_CTESTS "Build component tests" OFF)
+option(${PROJECT_NAME}_BUILD_UTESTS     "Build unit tests"          OFF)
+option(${PROJECT_NAME}_BUILD_CTESTS     "Build component tests"     OFF)
+option(${PROJECT_NAME}_BUILD_PORTABLE   "Build portable binaries"   OFF)
+
+if(CMAKE_SYSTEM_NAME STREQUAL Linux)
+    if(${PROJECT_NAME}_BUILD_PORTABLE)
+        set(CMAKE_INSTALL_RPATH "\$ORIGIN")
+        set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
+    endif()
+
+    set(HIDAPI_WITH_LIBUSB OFF)
+endif()
 
 add_subdirectory(external)
 add_subdirectory(libutilsmy)
