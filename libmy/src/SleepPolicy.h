@@ -9,24 +9,31 @@
  * but WITHOUT ANY WARRANTY.
  */
 
-#include "LibMyCounter.h"
+#pragma once
 
 #include <thread>
 
 using namespace std::chrono_literals;
 
-namespace nkhlab {
-namespace projectmy {
-namespace impl {
-
-int LibMyCounter::GetInt()
+class RealSleep
 {
-    // pretend that this call is time consuming
-    std::this_thread::sleep_for(500ms);
+public:
+    RealSleep() = default;
+    ~RealSleep() = default;
 
-    return ++counter_;
-}
+protected:
+    inline void sleep_ms(int value)
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(value));
+    }
+};
 
-} // namespace impl
-} // namespace projectmy
-} // namespace nkhlab
+class FakeSleep
+{
+public:
+    FakeSleep() = default;
+    ~FakeSleep() = default;
+
+protected:
+    inline void sleep_ms(int) {}
+};

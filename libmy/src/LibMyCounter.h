@@ -13,17 +13,28 @@
 
 #include "ILibMy.h"
 
+#include "SleepPolicy.h"
+
 namespace nkhlab {
 namespace projectmy {
 namespace impl {
 
-class LibMyCounter final : public ILibMy
+template <class SleepPolicy = RealSleep>
+class LibMyCounter final
+    : public ILibMy
+    , private SleepPolicy
 {
 public:
     LibMyCounter() = default;
     ~LibMyCounter() = default;
 
-    int GetInt() override;
+    int GetInt() override
+    {
+        // pretend that this call is time consuming
+        SleepPolicy::sleep_ms(500);
+
+        return ++counter_;
+    }
 
 private:
     int counter_{0};

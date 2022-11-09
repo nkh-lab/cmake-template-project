@@ -18,12 +18,12 @@ namespace projectmy {
 
 ILibMyPtr_t CreateLibMyCounter()
 {
-    return std::make_unique<impl::LibMyCounter>();
+    return std::make_unique<impl::LibMyCounter<>>();
 }
 
 ILibMyPtr_t CreateLibMyRandomizer()
 {
-    return std::make_unique<impl::LibMyRandomizer>();
+    return std::make_unique<impl::LibMyRandomizer<>>();
 }
 
 } // namespace projectmy

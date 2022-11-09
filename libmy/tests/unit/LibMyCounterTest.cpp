@@ -17,13 +17,13 @@ using namespace nkhlab::projectmy::impl;
 
 TEST(LibMyCounterTest, TestGetIntFirstCall)
 { // Should always return 1 at first call
-    EXPECT_EQ(LibMyCounter().GetInt(), 1);
-    EXPECT_EQ(LibMyCounter().GetInt(), 1);
+    EXPECT_EQ(LibMyCounter<FakeSleep>().GetInt(), 1);
+    EXPECT_EQ(LibMyCounter<FakeSleep>().GetInt(), 1);
 }
 
 TEST(LibMyCounterTest, TestGetIntSequence)
 {
-    LibMyCounter counter;
+    LibMyCounter<FakeSleep> counter;
     constexpr int kSequenceSize{5};
 
     for (int i = 0; i < kSequenceSize; ++i)

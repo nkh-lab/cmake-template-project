@@ -19,7 +19,7 @@ using namespace nkhlab::projectmy::impl;
 
 TEST(LibMyRandomizerTest, TestGetIntSequenceRandomization)
 {
-    LibMyRandomizer randomizer;
+    LibMyRandomizer<FakeSleep> randomizer;
     constexpr int kSequenceSize{5};
     std::set<int> random_values;
 
