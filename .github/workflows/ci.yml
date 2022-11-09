@@ -36,3 +36,17 @@ jobs:
       - name: Run Portable App
         run: |
           build/portable/appmy 10
+
+  Build-on-Windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Checkout submodules
+        run: git submodule update --init --recursive
+      - uses: microsoft/setup-msbuild@v1.1
+      - name: Build Portable
+        run: |
+          tools/build-portable-windows.bat -z
+      - name: Run Portable App
+        run: |
+          build/portable/appmy.exe 10

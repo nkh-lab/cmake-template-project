@@ -11,7 +11,7 @@
 
 @rem Usage:
 @rem Script input arguments: 
-@rem   '/z' - no need to archive a package
+@rem   '-z' - no need to archive a package
 @rem
 
 @echo off
@@ -19,14 +19,14 @@
 SET ZIP=1
 
 FOR %%A IN (%*) DO (
-    IF "%%A"=="/z" SET ZIP=0
+    IF "%%A"=="-z" SET ZIP=0
 )
 
 SET DIR=%~dp0
 cd %DIR\..
 SET PROJECT_ROOT=%cd%
 SET PORTABLE_DIR_REL_PATH="build\portable"
-SET PORTABLE_ARCHIVE_NAME="usbrelaymodule-portable"
+SET PORTABLE_ARCHIVE_NAME="projectmy-portable"
 
 rd /s /q build\ 2>nul
 mkdir build && cd build
@@ -38,14 +38,9 @@ cd %PROJECT_ROOT%
 
 mkdir %PORTABLE_DIR_REL_PATH%
 
-copy build\app-cli\Release\getrelay.exe %PORTABLE_DIR_REL_PATH%
-copy build\app-cli\Release\setrelay.exe %PORTABLE_DIR_REL_PATH%
-copy build\libusbrelaymodule\Release\usbrelaymodule.dll %PORTABLE_DIR_REL_PATH%
-copy build\external\hidapi\src\windows\Release\hidapi.dll %PORTABLE_DIR_REL_PATH%
+copy build\appmy\Release\appmy.exe %PORTABLE_DIR_REL_PATH%
+copy build\libmy\Release\libmy.dll %PORTABLE_DIR_REL_PATH%
 
 cd %PORTABLE_DIR_REL_PATH%
 
-IF %ZIP%==1 
-(
-    tar -czf ../%PORTABLE_ARCHIVE_NAME%.tar.gz *
-)
+IF %ZIP%==1 tar -czf ../%PORTABLE_ARCHIVE_NAME%.tar.gz *
