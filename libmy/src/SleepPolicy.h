@@ -13,7 +13,9 @@
 
 #include <thread>
 
-using namespace std::chrono_literals;
+namespace nkhlab {
+namespace projectmy {
+namespace impl {
 
 class RealSleep
 {
@@ -37,3 +39,7 @@ public:
 protected:
     inline void sleep_ms(int) {}
 };
+
+} // namespace impl
+} // namespace projectmy
+} // namespace nkhlab
