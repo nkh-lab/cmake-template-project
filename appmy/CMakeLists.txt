@@ -22,8 +22,12 @@ project(appmy)
 # Or overwrite from superproject
 set(${PROJECT_NAME}_BUILD_UTESTS ${projectmy_BUILD_UTESTS})
 
-if(CMAKE_SYSTEM_NAME STREQUAL Linux)
-    add_compile_options(-Wall -Werror -Wextra)
+if (MSVC)
+    # warning level 4 and all warnings as errors
+    add_compile_options(/W4 /WX)
+else()
+    # lots of warnings and all warnings as errors
+    add_compile_options(-Wall -Wextra -pedantic -Werror)
 endif()
 
 # Defines

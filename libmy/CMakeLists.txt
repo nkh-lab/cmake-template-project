@@ -27,8 +27,12 @@ set(CMAKE_SHARED_LIBRARY_PREFIX "")
 set(${PROJECT_NAME}_BUILD_UTESTS ${projectmy_BUILD_UTESTS})
 set(${PROJECT_NAME}_BUILD_CTESTS ${projectmy_BUILD_CTESTS})
 
-if(CMAKE_SYSTEM_NAME STREQUAL Linux)
-    add_compile_options(-Wall -Werror -Wextra)
+if (MSVC)
+    # warning level 4 and all warnings as errors
+    add_compile_options(/W4 /WX)
+else()
+    # lots of warnings and all warnings as errors
+    add_compile_options(-Wall -Wextra -pedantic -Werror)
 endif()
 
 # Defines
