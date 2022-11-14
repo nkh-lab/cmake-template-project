@@ -5,7 +5,7 @@ The main purpose of creating it is to have a uniform style for projects and quic
 
 Includes the following features:
 * crossplatform tested (Windows, Linux (Ubuntu), see [CI Status](#ci-status))
-* libraries (shared, header-only) and binaries examples;
+* libraries (shared, header-only) and executable examples;
 * Unit (based on `GTest` and `GMock`) and Component Tests;
 * `cmake` configuration generation (`configure_file()`) usage example;
 * tools:

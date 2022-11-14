@@ -11,15 +11,15 @@
 
 @rem Usage:
 @rem Script input arguments: 
-@rem   '-z' - no need to archive a package
+@rem   '-z' - to archive the package
 @rem
 
 @echo off
 
-SET ZIP=1
+SET ZIP=0
 
 FOR %%A IN (%*) DO (
-    IF "%%A"=="-z" SET ZIP=0
+    IF "%%A"=="-z" SET ZIP=1
 )
 
 SET DIR=%~dp0

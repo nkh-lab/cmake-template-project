@@ -13,15 +13,15 @@
 
 # Usage:
 # Script input arguments: 
-#   '-z' - no need to archive a package
+#   '-z' - to archive the package
 #
 
-ZIP=1
+ZIP=0
 
 while getopts z: flag
 do
     case "${flag}" in
-        u) ZIP=0;;
+        u) ZIP=1;;
     esac
 done
 

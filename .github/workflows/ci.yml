@@ -32,7 +32,7 @@ jobs:
           build/appmy/appmy 10
       - name: Build Portable
         run: |
-          tools/build-portable-linux.sh -z
+          tools/build-portable-linux.sh
       - name: Run Portable App
         run: |
           build/portable/appmy 10
@@ -46,7 +46,7 @@ jobs:
       - uses: microsoft/setup-msbuild@v1.1
       - name: Build Portable
         run: |
-          tools/build-portable-windows.bat -z
+          tools/build-portable-windows.bat
       - name: Run Portable App
         run: |
           build/portable/appmy.exe 10
