@@ -27,7 +27,7 @@ set(CMAKE_SHARED_LIBRARY_PREFIX "")
 set(${PROJECT_NAME}_BUILD_UTESTS ${projectmy_BUILD_UTESTS})
 set(${PROJECT_NAME}_BUILD_CTESTS ${projectmy_BUILD_CTESTS})
 
-if (MSVC)
+if(MSVC)
     # warning level 4 and all warnings as errors
     add_compile_options(/W4 /WX)
 else()

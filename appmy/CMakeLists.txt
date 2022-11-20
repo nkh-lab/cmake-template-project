@@ -22,7 +22,7 @@ project(appmy)
 # Or overwrite from superproject
 set(${PROJECT_NAME}_BUILD_UTESTS ${projectmy_BUILD_UTESTS})
 
-if (MSVC)
+if(MSVC)
     # warning level 4 and all warnings as errors
     add_compile_options(/W4 /WX)
 else()
