@@ -32,7 +32,7 @@ endif()
 
 # Defines
 add_definitions(-DMY_DEFINE="This is defined string from cmake!")
-# Suppress warnings 
+# Suppress warnings
 #add_compile_options(-Wno-deprecated-copy)
 
 file(GLOB SRC_FILES "src/*.cpp")
@@ -44,7 +44,7 @@ add_executable(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME}
     PRIVATE src
     )
-    
+
 target_link_libraries(${PROJECT_NAME}
     PRIVATE libmy
     PRIVATE libutilsmy

@@ -7,10 +7,10 @@
 @rem
 @rem This software is distributed in the hope that it will be useful,
 @rem but WITHOUT ANY WARRANTY.
-@rem 
+@rem
 
 @rem Usage:
-@rem Script input arguments: 
+@rem Script input arguments:
 @rem   '-z' - to archive the package
 @rem
 
@@ -31,7 +31,7 @@ SET PORTABLE_ARCHIVE_NAME="projectmy-portable"
 rd /s /q build\ 2>nul
 mkdir build && cd build
 
-cmake -G "Visual Studio 17 2022" .. 
+cmake -G "Visual Studio 17 2022" ..
 cmake --build . --config Release
 
 cd %PROJECT_ROOT%

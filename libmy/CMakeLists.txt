@@ -37,7 +37,7 @@ endif()
 
 # Defines
 add_definitions(-DMY_DEFINE)
-# Suppress warnings 
+# Suppress warnings
 #add_compile_options(-Wno-deprecated-copy)
 
 file(GLOB SRC_FILES "src/*.cpp")
@@ -50,7 +50,7 @@ target_include_directories(${PROJECT_NAME}
     PUBLIC include
     PRIVATE src
     )
-    
+
 #target_link_libraries(${PROJECT_NAME}
 #    PUBLIC ...
 #    PRIVATE ...

@@ -1,5 +1,5 @@
 ## Intro
-Template `cmake` project. 
+Template `cmake` project.
 
 The main purpose of creating it is to have a uniform style for projects and quickly set up a project based on this template.
 
@@ -14,9 +14,9 @@ Includes the following features:
     * build portable package scripts.
 
 ## CI Status
-[![CI](https://github.com/nkh-lab/cmake-template-project/actions/workflows/ci.yml/badge.svg)](https://github.com/nkh-lab/cmake-template-project/actions/workflows/ci.yml) 
+[![CI](https://github.com/nkh-lab/cmake-template-project/actions/workflows/ci.yml/badge.svg)](https://github.com/nkh-lab/cmake-template-project/actions/workflows/ci.yml)
 
-Ubuntu | Windows 
+Ubuntu | Windows
 
 ## How to get project source code
 Clone project:
@@ -42,7 +42,7 @@ set PATH=%PATH%;<path to msbuild>
 Build:
 ```
 mkdir build && cd build
-cmake -G "Visual Studio 17 2022" .. 
+cmake -G "Visual Studio 17 2022" ..
 cmake --build . --config Release
 ```
 
