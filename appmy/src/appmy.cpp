@@ -25,6 +25,7 @@ int main(int argc, char const* argv[])
     int ret = EXIT_SUCCESS;
 
     std::cout << "Hello World from " << argv[0] << ", v" << kProjectVer << "!\n";
+    std::cout << "Git commit: " << kProjectGitCommit << "\n";
 #ifdef MY_DEFINE
     std::cout << MY_DEFINE << "\n";
 #endif

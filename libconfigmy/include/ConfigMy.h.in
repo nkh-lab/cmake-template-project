@@ -18,7 +18,8 @@ namespace projectmy {
 constexpr int kProjectVerMajor = @PROJECT_VERSION_MAJOR@;
 constexpr int kProjectVerMinor = @PROJECT_VERSION_MINOR@;
 constexpr int kProjectVerPatch = @PROJECT_VERSION_PATCH@;
-const char* kProjectVer = "@PROJECT_VERSION@";
+constexpr char kProjectVer[] = "@PROJECT_VERSION@";
+constexpr char kProjectGitCommit[] = "@GIT_COMMIT_HASH@";
 // clang-format on
 
 } // namespace projectmy
