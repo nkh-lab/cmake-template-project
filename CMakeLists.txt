@@ -25,8 +25,6 @@ if(CMAKE_SYSTEM_NAME STREQUAL Linux)
         set(CMAKE_INSTALL_RPATH "\$ORIGIN")
         set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
     endif()
-
-    set(HIDAPI_WITH_LIBUSB OFF)
 endif()
 
 add_subdirectory(external)
